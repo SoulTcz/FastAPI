@@ -4,11 +4,23 @@
 from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+<<<<<<< HEAD
 
 from app.database.connection import startup_db_client, shutdown_db_client
 from app.api.v1.users import router as users_router
 from app.api.v1.auth import router as auth_router
 from app.api.v1.admin_products import router as admin_products_router
+=======
+from fastapi.staticfiles import StaticFiles
+import os
+
+from app.database.connection import startup_db_client, shutdown_db_client
+from app.core.config import UPLOAD_FOLDER
+from app.api.v1.users import router as users_router
+from app.api.v1.auth import router as auth_router
+from app.api.v1.admin_products import router as admin_products_router
+from app.api.v1.admin_product_images import router as admin_product_images_router
+>>>>>>> eb2793f (upload process)
 
 
 @asynccontextmanager
@@ -36,7 +48,20 @@ def read_root():
     return {"status": "ok", "message": "Baking E-commerce API is running"}
 
 
+<<<<<<< HEAD
+=======
+# Week 4: uploaded images ko "/uploads/xxxx.jpg" URL se serve karne ke liye
+# Pehle folder exist karna zaroori hai, warna StaticFiles error dega
+os.makedirs(UPLOAD_FOLDER, exist_ok=True)
+app.mount(f"/{UPLOAD_FOLDER}", StaticFiles(directory=UPLOAD_FOLDER), name="uploads")
+
+
+>>>>>>> eb2793f (upload process)
 # Router include - ab yeh sab /api/v1/... prefix ke saath kaam karega
 app.include_router(auth_router)
 app.include_router(users_router)
 app.include_router(admin_products_router)
+<<<<<<< HEAD
+=======
+app.include_router(admin_product_images_router)
+>>>>>>> eb2793f (upload process)
