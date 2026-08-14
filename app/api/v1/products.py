@@ -85,3 +85,4 @@ async def get_product_details(product_id: str, request: Request):
 
     product["_id"] = str(product["_id"])
     return product
+

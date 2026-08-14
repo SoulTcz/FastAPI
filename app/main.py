@@ -15,6 +15,10 @@ from app.api.v1.admin_products import router as admin_products_router
 from app.api.v1.admin_product_images import router as admin_product_images_router
 from app.api.v1.products import router as products_router
 from app.api.v1.cart import router as cart_router
+from app.api.v1.orders import router as orders_router
+from app.api.v1.admin_orders import router as admin_orders_router
+from app.api.v1.reviews import product_reviews_router, reviews_router
+from app.api.v1.admin_reviews import router as admin_reviews_router
 
 
 @asynccontextmanager
@@ -55,3 +59,10 @@ app.include_router(admin_products_router)
 app.include_router(admin_product_images_router)
 app.include_router(products_router)
 app.include_router(cart_router)
+# Week 6: Orders
+app.include_router(orders_router)
+app.include_router(admin_orders_router)
+# Week 7: Reviews & Ratings
+app.include_router(product_reviews_router)
+app.include_router(reviews_router)
+app.include_router(admin_reviews_router)
