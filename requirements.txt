@@ -1,8 +1,0 @@
-fastapi
-uvicorn
-python-multipart
-pymongo
-motor
-python-jose[cryptography] passlib[bcrypt]
-python-decouple
-pydantic-settings
